@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+	
+<head>
+	
+    <meta charset="utf-8">
+    <title>sign up</title>
+	
+
+    <style>
+	 .c1{
+                display: flex;
+                flex-direction:column;
+                max-width: 500px;
+		}
+	.d2{
+                display: flex;
+                justify-content: space-between;
+                padding: 5px 0px;
+                width: 100%;
+	  }
+    .l1{
+                text-align: left;
+                width: 40%;
+       }
+   .d1{
+                text-align: justify;
+     }
+
+	</style>
+
+</head>
+  <body bgcolor="#555">
+        <div style="display: flex;justify-content: space-around;">
+            <fieldset style="display:block; min-width: 400px;
+                text-align: center; margin: 40px auto;border-radius: 20px;
+                background-color: #ccc; font-size: large;font-weight: bold;"
+                >
+                <p>Sign Up</p>
+                <form method="get" name="f1" action="20170078.html" onsubmit="return validation()">
+                    <hr>
+                    <div class="c1">
+						  <div id="rslt" ></div>
+                        <div class=d2>
+                            <label class="l1">First Name</label>
+                            <input type="text" id="fname" > 
+                            		
+						</div>
+										
+                        <div class=d2>
+                            <label class="l1">Last Name</label>
+                            <input type="text"  id="lname">
+							 
+                        </div>
+						
+                        <div class=d2>
+                            <label class="l1">E-mail</label>
+                            <input type="text" id="email">
+							
+                        </div>
+						
+                        <div class=d2>
+                            <label class="l1">Phone</label>
+                            <input type="text" id="mobilePhone" placeholder="002 01x xxxx xxxx">
+							
+                        </div>
+						
+                        <div class=d2>
+                            <label class="l1">Registered Year</label>
+                            <select name="Location" id="Yearlist">
+                                <option value ="">--select a year--</option>
+                                <option value ="2020">2020</option>
+                                <option value ="2019">2019</option>
+                                <option value ="2018">2018</option>
+                                <option value ="2017">2017</option>
+                                <option value ="2016">2016</option>
+                            </select>
+                        </div>
+						
+                        <div class=d2>
+                            <div>
+                                <label>Department</label>
+                            </div>
+                            <div style="display: block;text-align: left; width: 24%;">
+                                <div><input type="radio" name="dep" id="dep1" class="textInput">MM</div><br>
+                                <div><input type="radio" name="dep" id="dep2" class="textInput">IT</div><br>
+                                <div><input type="radio" name="dep" id="dep3" class="textInput">HR</div><br>
+                                <div><input type="radio" name="dep" id="dep4" class="textInput">QA</div>
+                            </div>
+                        </div>
+						
+                        <div class=d2>
+                            <label class="l1">Postal Code</label>
+                            <input type="text" id="postalCode">
+							
+                        </div>
+                        <div class=d2>
+                            <!-- aggreement button -->
+                            <div class=d1>By checking the below box you agree to have
+                                read these terms and agree to, Hey come back and continue
+                                reading not all agreements are safe to agree to blindly.
+                            </div>
+                        </div>
+						
+                        <div class=d2>
+                            <span><input type="checkbox" name="agree" id ="agree">agree</span>
+                        </div>
+						
+                        <div>
+                            <input type="submit">
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </body>
+</html>
+
+
+<script>
+
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    let regex = /[\u0600-\u06FF\u0750-\u077F]/;
+	let regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+    var pattern = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+	var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+    var mobileno = /^((\\+2-?)|0)?[0-9]{10}$/;
+	var egyptphone = /^([0]{2})([2]{1})([0]{1})([1]{1})([0-9]{9})$/;
+	var postcode_regex = /[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}/g // for the rules on how UK postcodes are formatted.
+	const zipCodeRegex = /^\d{5}$/;
+    
+    function validation() 
+	{  
+       
+		if(document.forms["f1"]["fname"].value.length =="")
+		{
+            alert("You must enter your frist name.")   
+            return false;  
+		}
+		
+		if(document.forms["f1"]["fname"].value.length >35 ) 
+	    {
+            alert("Max size of first name must allow at most is 35 characters");
+            return false;
+        }
+		
+        if(document.forms["f1"]["fname"].value.match(regex)) 
+        { 
+            alert("fname jsut allow letter english only");
+            return false;
+        }
+	   
+		if(document.forms["f1"]["lname"].value.length =="")
+		{
+            alert("You must enter your last name.")   
+            return false;  
+		}
+
+		if(document.forms["f1"]["lname"].value.length >13 ) 
+	    {
+            alert("Max size of last name must allow at most is 13 characters");
+            return false;
+        }
+		        
+        if(document.forms["f1"]["lname"].value.match(regex)) 
+        { 
+            alert("lname jsut allow letter english only");
+            return false;
+        }
+
+        if(document.forms["f1"]["email"].value.length =="")
+		{
+            alert("You must enter your email.")   
+            return false;  
+        }
+        
+		if (!reg.test(email.value)) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+		
+        if(document.forms["f1"]["mobilePhone"].value == "")
+		{
+            alert("You must enter your Phone Number.")   
+            return false;  
+        }
+
+        if(!document.forms["f1"]["mobilePhone"].value.match(egyptphone))
+		{
+            alert("You must enter valid Phone Number.")   
+            return false;  
+        }
+
+		if(document.forms["f1"]["Yearlist"].value == "")
+		{
+            alert("You must enter your Year.")   
+            return false;  
+        }
+
+        if( document.getElementById("dep1").checked == false && document.getElementById("dep2").checked == false && document.getElementById("dep3").checked == false && document.getElementById("dep4").checked == false)
+		{
+            alert("You must select Department.")   
+            return false;  
+        }
+
+		if(document.forms["f1"]["postalCode"].value == "")
+		{
+            alert("You must enter your  postal code.")   
+            return false;  
+		}
+		
+		if(!document.forms["f1"]["postalCode"].value.match(postcode_regex))  // UK postal code = PO16 7GZ
+		{
+            alert ("Invalid postal code")
+            return false;
+		}
+        
+		if(document.forms["f1"]["agree"].checked == false)
+		{
+            alert("You must agree the conditions.")   
+            return false;  
+        }
+
+    }
+    
+	function selected(x) 
+	{
+        document.form1.select.options[x].selected = true;
+        
+        if (x != 0) 
+        {
+            document.form1.submitOK.value = false;
+        }
+        else 
+        {
+            document.form1.submitOK.value = true;
+        }
+    }
+
+</script>
